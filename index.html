@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LM Graphix | Graphic Design & Video Editing</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Alex+Brush&family=Syncopate:wght@400;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            DEFAULT: '#d4af37',
+                            light: '#f9e29f',
+                            dark: '#aa8c2c',
+                        },
+                        dark: {
+                            DEFAULT: '#0a0a0a',
+                            matte: '#121212',
+                            rich: '#050505',
+                        },
+                        primary: '#d4af37',
+                        secondary: '#f9e29f',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        calligraphy: ['Alex Brush', 'cursive'],
+                        brand: ['Syncopate', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Custom Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(2deg);
+            }
+
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+        }
+
+        @keyframes gold-glow {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+            }
+
+            50% {
+                filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.6));
+            }
+        }
+
+        .animate-fade-up {
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .gold-glow {
+            animation: gold-glow 4s ease-in-out infinite;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(to right, #d4af37, #f9e29f, #aa8c2c, #d4af37);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 5s linear infinite;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes neon-pulse {
+
+            0%,
+            100% {
+                text-shadow: 0 0 15px #fff, 0 0 30px #00f2ff, 0 0 45px #00f2ff;
+                opacity: 1;
+            }
+
+            50% {
+                text-shadow: 0 0 10px #fff, 0 0 20px #00f2ff, 0 0 35px #00f2ff;
+                opacity: 0.8;
+            }
+        }
+
+        .neon-blue-white {
+            color: #fff !important;
+            animation: neon-pulse 1.5s infinite ease-in-out;
+        }
+
+        .logo-glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 8px 16px;
+            border-radius: 16px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .logo-glass:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(0, 242, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .text-gold-shimmer {
+            background: linear-gradient(90deg, #d4af37 0%, #f9e29f 50%, #d4af37 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s linear infinite;
+        }
+
+        .holographic-text {
+            background: linear-gradient(135deg,
+                    rgba(0, 242, 255, 0.4) 0%,
+                    rgba(212, 175, 55, 0.6) 25%,
+                    rgba(255, 255, 255, 0.8) 50%,
+                    rgba(212, 175, 55, 0.6) 75%,
+                    rgba(0, 242, 255, 0.4) 100%);
+            background-size: 400% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 8s ease infinite;
+        }
+
+        .scanlines {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(to bottom,
+                    transparent 50%,
+                    rgba(0, 0, 0, 0.05) 50%);
+            background-size: 100% 4px;
+            z-index: 9997;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        .card-spotlight {
+            position: relative;
+        }
+
+        .card-spotlight::before {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
+                    rgba(212, 175, 55, 0.3),
+                    transparent 40%);
+            opacity: 0;
+            transition: opacity 0.5s;
+            z-index: 0;
+            border-radius: inherit;
+        }
+
+        .card-spotlight:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes calligraphy-glow {
+
+            0%,
+            100% {
+                text-shadow: 0 0 10px rgba(249, 226, 159, 0.5), 0 0 20px rgba(212, 175, 55, 0.3);
+                transform: translateY(0) rotate(-2deg);
+            }
+
+            50% {
+                text-shadow: 0 0 20px rgba(249, 226, 159, 0.8), 0 0 40px rgba(212, 175, 55, 0.6);
+                transform: translateY(-5px) rotate(-1deg);
+            }
+        }
+
+        .cursor-particle {
+            position: fixed;
+            pointer-events: none;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(0, 242, 255, 0.1));
+            border: 1px solid rgba(0, 242, 255, 0.4);
+            border-radius: 50%;
+            z-index: 9998;
+            opacity: 0.6;
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
+        }
+
+        /* Iced Blue Bubbles */
+        .bubble-iced-blue {
+            position: absolute;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4), rgba(165, 243, 252, 0.1));
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(165, 243, 252, 0.3);
+            border-radius: 50%;
+            pointer-events: none;
+            box-shadow: 0 0 15px rgba(165, 243, 252, 0.2), inset 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .animate-calligraphy {
+            animation: calligraphy-glow 4s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        #custom-cursor {
+            background: rgba(0, 242, 255, 0.15);
+            box-shadow: 0 0 25px 15px rgba(0, 242, 255, 0.3);
+            filter: blur(4px);
+            border: 2px solid rgba(0, 242, 255, 0.4);
+            transition: transform 0.15s ease-out, background 0.3s ease;
+        }
+
+        #custom-cursor.hover {
+            transform: scale(1.5);
+            background: rgba(0, 242, 255, 0.05);
+            border: 1px solid rgba(0, 242, 255, 0.3);
+            box-shadow: 0 0 30px 10px rgba(0, 242, 255, 0.2);
+            filter: blur(2px);
+        }
+
+        #custom-cursor.active {
+            transform: scale(0.6);
+            background: rgba(0, 242, 255, 0.6);
+            box-shadow: 0 0 50px 25px rgba(0, 242, 255, 0.6);
+            filter: blur(1px);
+        }
+
+        .floating-cube {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            animation: cube-float 10s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .adobe-icon {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #d4af37, #f9e29f);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .blur-none {
+            filter: blur(0);
+            opacity: 0.95;
+            z-index: 5;
+        }
+
+        .blur-thin {
+            filter: blur(2px);
+            opacity: 0.7;
+            z-index: 3;
+        }
+
+        .blur-heavy {
+            filter: blur(8px);
+            opacity: 0.35;
+            z-index: 1;
+        }
+
+        @keyframes cube-float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            33% {
+                transform: translateY(-30px) rotate(10deg);
+            }
+
+            66% {
+                transform: translateY(15px) rotate(-10deg);
+            }
+        }
+
+        @media (max-width: 1024px) {
+
+            #custom-cursor,
+            .floating-cube {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-dark text-gray-200 font-sans antialiased overflow-x-hidden selection:bg-primary selection:text-black">
+
+    <div id="custom-cursor"
+        class="fixed w-10 h-10 rounded-full pointer-events-none z-[9999] flex items-center justify-center">
+    </div>
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 bg-dark/95 backdrop-blur-md border-b border-white/10 shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="group relative logo-glass flex items-center gap-4">
+                <div class="relative">
+                    <img src="my logo.svg" alt="LM Graphix"
+                        class="h-14 w-auto transition transform group-hover:scale-110 group-hover:rotate-6 relative z-10">
+                    <div
+                        class="absolute inset-0 bg-blue-400/20 blur-xl rounded-full scale-0 group-hover:scale-150 transition-transform duration-500">
+                    </div>
+                </div>
+                <div class="flex flex-col space-y-0 hidden sm:flex">
+                    <span class="text-4xl neon-blue-white leading-none font-serif font-bold"
+                        style="font-family: 'Times New Roman', Times, serif;">LM</span>
+                    <span
+                        class="text-[12px] text-gold-shimmer font-brand uppercase tracking-[0.5em] font-black">GRAPHIX</span>
+                </div>
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn"
+                class="text-2xl text-white md:hidden hover:text-primary transition focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex gap-8">
+                <a href="#home" class="text-gray-300 hover:text-primary font-semibold transition relative group">
+                    Home
+                    <span
+                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#about" class="text-gray-300 hover:text-primary font-semibold transition relative group">
+                    About
+                    <span
+                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#services" class="text-gray-300 hover:text-primary font-semibold transition relative group">
+                    Services
+                    <span
+                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                </a>
+
+                <a href="#contact"
+                    class="px-6 py-2 bg-gradient-to-r from-primary to-secondary text-white font-bold rounded-full hover:shadow-[0_0_20px_rgba(0,212,255,0.4)] transition transform hover:-translate-y-1">
+                    Contact Us
+                </a>
+            </nav>
+        </div>
+
+        <!-- Mobile Nav Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-card border-t border-white/10 absolute w-full left-0 top-full">
+            <div class="flex flex-col p-6 space-y-4 text-center">
+                <a href="#home" class="text-lg text-gray-300 hover:text-primary font-semibold">Home</a>
+                <a href="#about" class="text-lg text-gray-300 hover:text-primary font-semibold">About</a>
+                <a href="#services" class="text-lg text-gray-300 hover:text-primary font-semibold">Services</a>
+
+                <a href="#contact" class="text-lg text-primary font-bold">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home"
+        class="min-h-screen flex items-center justify-center pt-24 relative overflow-hidden bg-dark-rich">
+
+        <!-- Large Blurred Logo Background Element -->
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] pointer-events-none opacity-[0.05] filter blur-[60px] animate-float">
+            <img src="my logo.svg" alt="" class="w-full h-full object-contain">
+        </div>
+
+        <!-- Cinematic Background Assets -->
+        <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
+            <!-- Volumetric Light Streaks -->
+            <div
+                class="absolute -top-1/4 -left-1/4 w-[150%] h-[150%] bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.05)_0%,transparent_70%)] opacity-50">
+            </div>
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.1)_0%,transparent_60%)]">
+            </div>
+
+            <!-- Floating Elements Mockup (CSS only for now) -->
+            <div
+                class="absolute top-[20%] right-[10%] w-64 h-80 glass-card rounded-2xl animate-float opacity-30 transform rotate-12 hidden lg:block">
+            </div>
+            <div class="absolute bottom-[15%] left-[5%] w-48 h-64 glass-card rounded-2xl animate-float opacity-20 transform -rotate-6 hidden lg:block"
+                style="animation-delay: -2s;"></div>
+
+            <!-- Redistributed Floating Adobe Suite by Blur Levels -->
+            <!-- SHARP (Forefront) -->
+            <div class="floating-cube blur-none top-[15%] left-[10%] drop-shadow-[0_0_20px_rgba(212,175,55,0.4)]">
+                <span class="adobe-icon font-sans">Ps</span>
+            </div>
+            <div class="floating-cube blur-none bottom-[15%] right-[10%] drop-shadow-[0_0_20px_rgba(212,175,55,0.4)]"
+                style="width:75px; height:75px; animation-delay: -7s;">
+                <span class="adobe-icon font-sans text-3xl">Ai</span>
+            </div>
+
+            <!-- THIN BLUR (Midground) -->
+            <div class="floating-cube blur-thin top-[25%] right-[15%] drop-shadow-[0_0_15px_rgba(212,175,55,0.2)]"
+                style="animation-delay: -5s;">
+                <span class="adobe-icon font-sans">Ae</span>
+            </div>
+            <div class="floating-cube blur-thin top-[60%] left-[15%] drop-shadow-[0_0_15px_rgba(212,175,55,0.2)]"
+                style="animation-delay: -2s; width:65px; height:65px;">
+                <span class="adobe-icon font-sans text-2xl">Pr</span>
+            </div>
+            <div class="floating-cube blur-thin bottom-[30%] left-[30%] drop-shadow-[0_0_15px_rgba(212,175,55,0.2)]"
+                style="animation-delay: -9s; width:60px; height:60px;">
+                <span class="adobe-icon font-sans text-2xl">Au</span>
+            </div>
+
+            <!-- HEAVY BLUR (Deep Background) -->
+            <div class="floating-cube blur-heavy top-[10%] left-[45%]"
+                style="animation-delay: -11s; width:55px; height:55px;">
+                <span class="adobe-icon font-sans text-xl">Id</span>
+            </div>
+            <div class="floating-cube blur-heavy top-[45%] left-[5%]"
+                style="animation-delay: -3.5s; width:50px; height:50px;">
+                <span class="adobe-icon font-sans text-xl">Lr</span>
+            </div>
+            <div class="floating-cube blur-heavy top-[40%] right-[35%]"
+                style="animation-delay: -1s; width:60px; height:60px;">
+                <span class="adobe-icon font-sans text-2xl">Me</span>
+            </div>
+            <div class="floating-cube blur-heavy bottom-[45%] right-[20%]"
+                style="animation-delay: -4s; width:50px; height:50px;">
+                <span class="adobe-icon font-sans text-xl">Xd</span>
+            </div>
+            <div class="floating-cube blur-heavy top-[25%] left-[25%]"
+                style="animation-delay: -6s; width:45px; height:45px;">
+                <span class="adobe-icon font-sans text-lg">An</span>
+            </div>
+
+            <!-- Floating Droplets / Bubbles in Iced Blue -->
+            <div class="bubble-iced-blue w-6 h-6 animate-float top-[30%] left-[20%] opacity-40 blur-[1px]"></div>
+            <div class="bubble-iced-blue w-10 h-10 animate-float bottom-[40%] right-[25%] opacity-20 blur-[2px]"
+                style="animation-delay: -3.5s;"></div>
+            <div class="bubble-iced-blue w-4 h-4 animate-float top-[65%] left-[45%] opacity-30 shadow-[0_0_10px_rgba(165,243,252,0.5)]"
+                style="animation-delay: -1.2s;"></div>
+            <div class="bubble-iced-blue w-8 h-8 animate-float top-[15%] right-[35%] opacity-25 blur-[1px]"
+                style="animation-delay: -5s;"></div>
+            <div class="bubble-iced-blue w-5 h-5 animate-float bottom-[20%] left-[30%] opacity-40 shadow-[0_0_15px_rgba(165,243,252,0.4)]"
+                style="animation-delay: -2.8s;"></div>
+        </div>
+
+        <div class="container mx-auto px-6 text-center z-10">
+
+            <div class="mb-12 animate-fade-up">
+                <a href="#home" class="relative inline-block group cursor-pointer decoration-none">
+                    <span
+                        class="block neon-blue-white text-8xl md:text-[10rem] leading-none mb-[-0.2em] font-serif font-bold"
+                        style="font-family: 'Times New Roman', Times, serif;">LM</span>
+                    <span
+                        class="holographic-text font-brand text-4xl md:text-6xl uppercase tracking-[0.4em] block relative z-10 transition-transform group-hover:scale-105">GRAPHIX</span>
+                    <div class="flex items-center justify-center gap-4 mt-6">
+                        <div class="h-[1px] w-16 bg-gradient-to-r from-transparent via-gold/50 to-transparent"></div>
+                        <span
+                            class="text-gold-light font-calligraphy text-4xl md:text-5xl lowercase tracking-widest animate-calligraphy">official</span>
+                        <div class="h-[1px] w-16 bg-gradient-to-r from-transparent via-gold/50 to-transparent"></div>
+                    </div>
+                </a>
+            </div>
+            <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-4xl mx-auto leading-relaxed animate-fade-up"
+                style="animation-delay: 0.2s;">
+                Experience the next dimension of <span class="text-gold">Visual Storytelling</span>.
+                Premium Graphic Design and Video Editing tailored for the legends.
+            </p>
+            <div class="animate-fade-up flex flex-col sm:flex-row items-center justify-center gap-8"
+                style="animation-delay: 0.4s;">
+                <!-- Enter the Gallery Button -->
+                <a href="#services" class="group relative px-12 py-6 overflow-hidden rounded-full">
+                    <div class="absolute inset-0 bg-gold transition-transform duration-500 group-hover:scale-110"></div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000">
+                    </div>
+                    <span
+                        class="relative z-10 text-black font-black text-xl uppercase tracking-widest flex items-center gap-3">
+                        Enter the Gallery <i
+                            class="fas fa-arrow-right text-sm transition-transform group-hover:translate-x-2"></i>
+                    </span>
+                    <div
+                        class="absolute inset-0 rounded-full shadow-[0_0_40px_rgba(212,175,55,0.3)] group-hover:shadow-[0_0_60px_rgba(212,175,55,0.6)] transition-all duration-500">
+                    </div>
+                </a>
+
+                <!-- Get in Touch Button -->
+                <a href="#contact"
+                    class="group relative px-12 py-6 overflow-hidden rounded-full border border-gold/30 hover:border-gold/60 transition-colors">
+                    <div
+                        class="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <span
+                        class="relative z-10 text-gold font-extrabold text-xl uppercase tracking-widest flex items-center gap-3">
+                        Get in Touch <i class="fas fa-comment-dots text-sm opacity-60"></i>
+                    </span>
+                    <div
+                        class="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-gold/40 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Mission -->
+    <section id="about" class="py-32 bg-dark-matte relative overflow-hidden">
+        <!-- Logo Background Watermark -->
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] h-[100%] pointer-events-none opacity-[0.04] filter blur-[40px] rotate-12">
+            <img src="my logo.svg" alt="" class="w-full h-full object-contain">
+        </div>
+
+        <!-- Cinematic Background Assets -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div
+                class="absolute top-0 right-0 w-[50%] h-[100%] bg-[radial-gradient(circle_at_top_right,rgba(212,175,55,0.05)_0%,transparent_70%)] opacity-30">
+            </div>
+            <div
+                class="absolute bottom-0 left-0 w-[50%] h-[100%] bg-[radial-gradient(circle_at_bottom_left,rgba(0,242,255,0.05)_0%,transparent_70%)] opacity-30">
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Left: Content -->
+                <div class="text-left animate-fade-up">
+                    <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-8">
+                        The Mastermind Behind <br>
+                        <span class="gold-gradient-text">LM GRAPHIX</span>
+                    </h2>
+                    <div class="w-20 h-1 bg-gold mb-10 rounded-full"></div>
+
+                    <p class="text-xl text-gray-400 mb-10 leading-relaxed italic">
+                        "Your brand isn't just a project to us; it's a legacy. We breathe life into every pixel,
+                        ensuring
+                        your vision doesn't just exist—it dominates."
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 group">
+                            <div
+                                class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold border border-gold/20 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span class="text-lg font-semibold text-gray-200">Elite Standards of Professional
+                                Quality</span>
+                        </div>
+                        <div class="flex items-center gap-4 group">
+                            <div
+                                class="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400 border border-blue-500/20 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <span class="text-lg font-semibold text-gray-200">Hyper-Fast 24-48hr Turnaround</span>
+                        </div>
+                        <div class="flex items-center gap-4 group">
+                            <div
+                                class="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400 border border-purple-500/20 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <span class="text-lg font-semibold text-gray-200">Deeply Tailored Custom Solutions</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Visual -->
+                <div class="relative animate-fade-up" style="animation-delay: 0.2s;">
+                    <div class="glass-card p-10 rounded-[3rem] border-gold/20 relative z-10 overflow-hidden group">
+                        <!-- Abstract Design Element -->
+                        <div
+                            class="absolute -top-10 -right-10 w-40 h-40 bg-gold/10 rounded-full blur-3xl group-hover:bg-gold/20 transition-all">
+                        </div>
+
+                        <div class="relative z-20">
+                            <h3 class="font-brand text-2xl text-gold mb-6 tracking-widest uppercase">Our Mission</h3>
+                            <p class="text-3xl md:text-4xl font-light text-white leading-tight mb-8">
+                                To turn ideas into <span class="text-gold">visuals</span> that capture attention and
+                                leave a <span class="neon-blue-white">lasting</span> impression.
+                            </p>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-gold">
+                                    <i class="fas fa-star text-xs"></i>
+                                </div>
+                                <span class="text-gray-400 uppercase tracking-widest text-sm font-bold">Excellence
+                                    Guaranteed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-6 -right-6 bg-gold p-6 rounded-2xl shadow-2xl animate-float z-20">
+                        <div class="text-black font-extrabold text-3xl leading-none">100%</div>
+                        <div class="text-black text-xs font-bold uppercase tracking-wider">Client Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services & Pricing Section -->
+    <section id="services" class="py-24 bg-dark-rich relative overflow-hidden">
+        <!-- Logo Background Watermark -->
+        <div
+            class="absolute top-0 right-[-10%] w-[70%] h-[70%] pointer-events-none opacity-[0.03] filter blur-[50px] -rotate-12">
+            <img src="my logo.svg" alt="" class="w-full h-full object-contain">
+        </div>
+
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold text-white mb-4">
+                    Our <span class="gold-gradient-text font-brand uppercase tracking-wider">Services</span>
+                </h2>
+                <div class="w-24 h-1 bg-gold mx-auto mb-6 rounded-full shadow-[0_0_10px_#d4af37]"></div>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    Elite creative solutions designed to elevate your brand and digital presence.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+                <!-- YouTube Thumbnails -->
+                <div
+                    class="group p-6 glass-card card-spotlight rounded-3xl border-gold/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-2xl">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">YouTube Thumbnails</h3>
+                            <p class="text-xs text-gold/60 font-semibold uppercase tracking-wider">From 500 LKR</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Engaging visuals designed to maximize click-through
+                        rates and video performance.</p>
+                </div>
+
+                <!-- Professional CV -->
+                <div
+                    class="group p-6 glass-card card-spotlight rounded-3xl border-gold/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-2xl">
+                            <i class="fas fa-file-invoice"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">CV / Resume Design</h3>
+                            <p class="text-xs text-gold/60 font-semibold uppercase tracking-wider">From 400 LKR</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Modern, professional resume layouts tailored to
+                        land your dream job.</p>
+                </div>
+
+                <!-- Logo Design -->
+                <div
+                    class="group p-6 glass-card card-spotlight rounded-3xl border-gold/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-2xl">
+                            <i class="fas fa-fingerprint"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Logo Design</h3>
+                            <p class="text-xs text-gold/60 font-semibold uppercase tracking-wider">From 800 LKR</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Unique and memorable brand identities that stand
+                        the test of time.</p>
+                </div>
+
+                <!-- Social Media Posts -->
+                <div
+                    class="group p-6 glass-card card-spotlight rounded-3xl border-gold/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-2xl">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Social Media Posts</h3>
+                            <p class="text-xs text-gold/60 font-semibold uppercase tracking-wider">From 500 LKR</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">High-impact graphics for Facebook and Instagram
+                        marketing campaigns.</p>
+                </div>
+
+                <!-- Business Cards -->
+                <div
+                    class="group p-6 glass-card card-spotlight rounded-3xl border-gold/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-2xl">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Business Cards</h3>
+                            <p class="text-xs text-gold/60 font-semibold uppercase tracking-wider">From 400 LKR</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Premium networking tools that leave a powerful
+                        first impression.</p>
+                </div>
+
+                <!-- Flyers -->
+                <div
+                    class="group p-6 glass-card card-spotlight rounded-3xl border-gold/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-2xl">
+                            <i class="fas fa-pager"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Flyers & Posters</h3>
+                            <p class="text-xs text-gold/60 font-semibold uppercase tracking-wider">From 500 LKR</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Attention-grabbing designs for events, products, or
+                        brand promotion.</p>
+                </div>
+
+                <!-- Channel Art -->
+                <div
+                    class="group p-6 glass-card card-spotlight rounded-3xl border-gold/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-2xl">
+                            <i class="fas fa-tv"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">YouTube Banners</h3>
+                            <p class="text-xs text-gold/60 font-semibold uppercase tracking-wider">From 300 LKR</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Sophisticated channel art that establishes your
+                        professional authority.</p>
+                </div>
+
+                <!-- Story Templates -->
+                <div
+                    class="group p-6 glass-card card-spotlight rounded-3xl border-gold/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-2xl">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Story Templates</h3>
+                            <p class="text-xs text-gold/60 font-semibold uppercase tracking-wider">From 350 LKR</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Custom-styled Instagram Story templates for a
+                        cohesive brand aesthetic.</p>
+                </div>
+
+                <!-- Book Cover -->
+                <div
+                    class="group p-6 glass-card card-spotlight rounded-3xl border-gold/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-2xl">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Book Cover Design</h3>
+                            <p class="text-xs text-gold/60 font-semibold uppercase tracking-wider">From 800 LKR</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Cinematic covers for physical books and digital
+                        E-book releases.</p>
+                </div>
+
+                <!-- Product Labels -->
+                <div
+                    class="group p-6 glass-card card-spotlight rounded-3xl border-gold/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-2xl">
+                            <i class="fas fa-box-open"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Product Packaging</h3>
+                            <p class="text-xs text-gold/60 font-semibold uppercase tracking-wider">From 1000 LKR</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Elite labeling and packaging designs that drive
+                        retail performance.</p>
+                </div>
+
+                <!-- Infographics -->
+                <div
+                    class="group p-6 glass-card card-spotlight rounded-3xl border-gold/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-2xl">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Infographics</h3>
+                            <p class="text-xs text-gold/60 font-semibold uppercase tracking-wider">From 600 LKR</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Visual storytelling of complex data for clarity and
+                        engagement.</p>
+                </div>
+
+                <!-- Menu Cards -->
+                <div
+                    class="group p-6 glass-card card-spotlight rounded-3xl border-gold/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-2xl">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Menu Card Design</h3>
+                            <p class="text-xs text-gold/60 font-semibold uppercase tracking-wider">From 900 LKR</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Elegant and practical menu designs for restaurants
+                        and cafes.</p>
+                </div>
+
+                <!-- Letterheads -->
+                <div
+                    class="group p-6 glass-card card-spotlight rounded-3xl border-gold/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-2xl">
+                            <i class="fas fa-envelope-open-text"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Letterheads</h3>
+                            <p class="text-xs text-gold/60 font-semibold uppercase tracking-wider">From 500 LKR</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Authentic corporate letterheads for professional
+                        correspondence.</p>
+                </div>
+
+                <!-- T-shirt Design -->
+                <div
+                    class="group p-6 glass-card rounded-3xl border-gold/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-2xl">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Apparel Design</h3>
+                            <p class="text-xs text-gold/60 font-semibold uppercase tracking-wider">From 1500 LKR</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Creative print-ready designs for T-shirts and
+                        merchandise.</p>
+                </div>
+
+                <!-- Vector Tracing -->
+                <div
+                    class="group p-6 glass-card rounded-3xl border-gold/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-2xl">
+                            <i class="fas fa-bezier-curve"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Vector Tracing</h3>
+                            <p class="text-xs text-gold/60 font-semibold uppercase tracking-wider">From 300 LKR</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Precision vectorization of low-res images for
+                        crystal-clear quality.</p>
+                </div>
+
+                <!-- PPT Slides -->
+                <div
+                    class="group p-6 glass-card rounded-3xl border-gold/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-2xl">
+                            <i class="fas fa-presentation"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Presentation Slides</h3>
+                            <p class="text-xs text-gold/60 font-semibold uppercase tracking-wider">From 600 LKR</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Dynamic presentation decks for meetings, lectures,
+                        and pitches.</p>
+                </div>
+
+                <!-- Invitations -->
+                <div
+                    class="group p-6 glass-card rounded-3xl border-gold/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-2xl">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Invitation Cards</h3>
+                            <p class="text-xs text-gold/60 font-semibold uppercase tracking-wider">From 400 LKR</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Exquisite designs for weddings, birthdays, and
+                        special events.</p>
+                </div>
+
+                <!-- Web Banners -->
+                <div
+                    class="group p-6 glass-card rounded-3xl border-gold/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-2xl">
+                            <i class="fas fa-ad"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Web Banners</h3>
+                            <p class="text-xs text-gold/60 font-semibold uppercase tracking-wider">From 500 LKR</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Effective, clickable advertising banners for
+                        websites and apps.</p>
+                </div>
+
+                <!-- Podcast Art -->
+                <div
+                    class="group p-6 glass-card rounded-3xl border-gold/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-2xl">
+                            <i class="fas fa-microphone-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Podcast Cover Art</h3>
+                            <p class="text-xs text-gold/60 font-semibold uppercase tracking-wider">From 500 LKR</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Distinctive cover art that makes your podcast stand
+                        out in search.</p>
+                </div>
+
+                <!-- Social Media Kit -->
+                <div
+                    class="group p-6 glass-card rounded-3xl border-gold/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-2xl">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Social Media Kit</h3>
+                            <p class="text-xs text-gold/60 font-semibold uppercase tracking-wider">From 1500 LKR</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">A complete branding solution for all your social
+                        media profiles.</p>
+                </div>
+
+                <!-- Typesetting -->
+                <div
+                    class="group p-6 glass-card rounded-3xl border-gold/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-2xl">
+                            <i class="fas fa-keyboard"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Typesetting</h3>
+                            <p class="text-xs text-gold/60 font-semibold uppercase tracking-wider">From 100 LKR</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Professional, print-ready typesetting for books,
+                        reports, and theses.</p>
+                </div>
+
+                <!-- Video Editing -->
+                <div
+                    class="group p-6 glass-card rounded-3xl border-gold/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-2xl">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Video Editing</h3>
+                            <p class="text-xs text-gold/60 font-semibold uppercase tracking-wider">From 1000 LKR</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Expert editing for YouTube, promo clips, social
+                        content, and motion graphics.</p>
+                </div>
+            </div>
+
+            <!-- Premium Notes / Policy Section -->
+            <div class="mt-32 relative group">
+                <!-- Background Glow -->
+                <div
+                    class="absolute -inset-4 bg-gradient-to-r from-gold/10 via-blue-500/5 to-gold/10 rounded-[3rem] blur-2xl opacity-50 group-hover:opacity-100 transition duration-1000">
+                </div>
+
+                <div class="relative glass-card rounded-[3rem] border-gold/20 p-10 md:p-16 overflow-hidden">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
+                        <div>
+                            <h3 class="text-3xl md:text-4xl font-extrabold text-white mb-2">
+                                Service <span class="gold-gradient-text uppercase tracking-widest">Policies</span>
+                            </h3>
+                            <p class="text-gray-400 font-medium">Transparent terms for a professional partnership.</p>
+                        </div>
+                        <div
+                            class="px-6 py-2 bg-gold/10 border border-gold/20 rounded-full text-gold text-xs font-bold uppercase tracking-[0.3em]">
+                            Global Standards
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Policy 1 -->
+                        <div
+                            class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-gold/30 transition-all group/item">
+                            <div class="flex gap-5">
+                                <div
+                                    class="w-14 h-14 rounded-2xl bg-gold/10 flex flex-shrink-0 items-center justify-center text-gold text-2xl group-hover/item:scale-110 transition-transform">
+                                    <i class="fas fa-redo-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-bold mb-2">Revision Policy</h4>
+                                    <p class="text-gray-400 text-sm leading-relaxed">
+                                        One professional revision included. Subsequent updates at <span
+                                            class="text-gold font-bold">20%</span> of the base value.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Policy 2 -->
+                        <div
+                            class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/30 transition-all group/item">
+                            <div class="flex gap-5">
+                                <div
+                                    class="w-14 h-14 rounded-2xl bg-blue-500/10 flex flex-shrink-0 items-center justify-center text-blue-400 text-2xl group-hover/item:scale-110 transition-transform">
+                                    <i class="fas fa-hand-holding-usd"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-bold mb-2">Advance Deposit</h4>
+                                    <p class="text-gray-400 text-sm leading-relaxed">
+                                        Production commences immediately following a confirmed initial deposit for your
+                                        project.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Policy 3 -->
+                        <div
+                            class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-gold/30 transition-all group/item">
+                            <div class="flex gap-5">
+                                <div
+                                    class="w-14 h-14 rounded-2xl bg-gold/10 flex flex-shrink-0 items-center justify-center text-gold text-2xl group-hover/item:scale-110 transition-transform">
+                                    <i class="fas fa-hourglass-half"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-bold mb-2">Turnaround Time</h4>
+                                    <p class="text-gray-400 text-sm leading-relaxed">
+                                        Standard high-quality delivery within <span class="text-white font-bold">24 - 48
+                                            hours</span> from project start.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Policy 4 -->
+                        <div
+                            class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/30 transition-all group/item">
+                            <div class="flex gap-5">
+                                <div
+                                    class="w-14 h-14 rounded-2xl bg-blue-500/10 flex flex-shrink-0 items-center justify-center text-blue-400 text-2xl group-hover/item:scale-110 transition-transform">
+                                    <i class="fas fa-shipping-fast"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-bold mb-2">Express Delivery</h4>
+                                    <p class="text-gray-400 text-sm leading-relaxed">
+                                        Priority processing available for a flat fee of <span
+                                            class="text-blue-400 font-bold">150 LKR</span> only.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer Badges -->
+                    <div
+                        class="mt-16 pt-10 border-t border-white/5 flex flex-wrap justify-center md:justify-between items-center gap-8">
+                        <div class="flex items-center gap-6 text-xs font-black text-gold/40 uppercase tracking-[0.4em]">
+                            <span class="flex items-center gap-2"><i class="fas fa-check-circle"></i> Valid 2026</span>
+                            <span class="flex items-center gap-2"><i class="fas fa-shield-alt"></i> Secure
+                                Payment</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <div
+                                class="px-5 py-2 glass-card rounded-lg text-gold text-[10px] font-black uppercase tracking-widest border border-gold/20">
+                                Friendly Service
+                            </div>
+                            <div
+                                class="px-5 py-2 glass-card rounded-lg text-white text-[10px] font-black uppercase tracking-widest border border-white/10">
+                                Quality First
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 bg-dark-rich relative overflow-hidden">
+        <!-- Cinematic Background Assets (Reusing Home Page Styles) -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div
+                class="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_bottom,rgba(212,175,55,0.08)_0%,transparent_70%)] opacity-60">
+            </div>
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(ellipse_at_center,rgba(0,242,255,0.03)_0%,transparent_60%)]">
+            </div>
+
+            <!-- Floating Decorative Social Icons -->
+            <div class="floating-cube blur-none top-[10%] left-[15%] drop-shadow-[0_0_20px_rgba(37,211,102,0.3)] opacity-40 hidden lg:flex"
+                style="width:60px; height:60px;">
+                <i class="fab fa-whatsapp text-3xl text-[#25D366]"></i>
+            </div>
+            <div class="floating-cube blur-thin top-[40%] right-[10%] drop-shadow-[0_0_15px_rgba(220,39,67,0.2)] opacity-30 hidden lg:flex"
+                style="width:50px; height:50px; animation-delay: -3s;">
+                <i class="fab fa-instagram text-2xl text-[#dc2743]"></i>
+            </div>
+            <div class="floating-cube blur-heavy bottom-[20%] left-[10%] opacity-20 hidden lg:flex"
+                style="width:70px; height:70px; animation-delay: -6s;">
+                <i class="fab fa-facebook text-3xl text-[#1877F2]"></i>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="mb-16 animate-fade-up">
+                <h2 class="text-5xl md:text-7xl font-extrabold text-white mb-6">
+                    Ready to <span class="gold-gradient-text uppercase tracking-wider">Elevate</span><br>
+                    <span class="text-white">Your Vision?</span>
+                </h2>
+                <div class="w-24 h-1 bg-gold mx-auto mb-8 rounded-full shadow-[0_0_15px_rgba(212,175,55,0.5)]"></div>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                    Let's collaborate and create something extraordinary. Stay connected with the future of digital
+                    design.
+                </p>
+            </div>
+
+            <div class="flex flex-col items-center gap-12 animate-fade-up" style="animation-delay: 0.2s;">
+                <!-- Primary Contact: WhatsApp -->
+                <div class="relative group">
+                    <!-- Intense Ambient Glow -->
+                    <div
+                        class="absolute -inset-6 bg-[#25D366]/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition duration-500 animate-pulse">
+                    </div>
+
+                    <a href="https://wa.me/94704982037" target="_blank"
+                        class="relative block p-1.5 rounded-full overflow-hidden transition-all duration-500 hover:scale-110 active:scale-95 shadow-[0_0_50px_rgba(37,211,102,0.2)] hover:shadow-[0_0_80px_rgba(37,211,102,0.4)]">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-[#25D366] via-[#128C7E] to-[#25D366] bg-[length:200%_auto] animate-shine">
+                        </div>
+                        <div
+                            class="relative px-16 py-8 bg-dark-rich rounded-full flex flex-col items-center gap-2 text-white border border-white/10 group-hover:bg-transparent transition-colors">
+                            <span
+                                class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#25D366] text-black text-[10px] font-black uppercase tracking-[0.3em] rounded-full shadow-lg">Fastest
+                                Response</span>
+                            <div class="flex items-center gap-4">
+                                <i
+                                    class="fab fa-whatsapp text-4xl text-[#25D366] group-hover:text-white transition-colors"></i>
+                                <span class="text-3xl font-black uppercase tracking-widest">WhatsApp Me</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Secondary Contacts -->
+                <div
+                    class="flex flex-wrap items-center justify-center gap-6 opacity-80 hover:opacity-100 transition-opacity">
+                    <!-- Instagram Card -->
+                    <a href="https://www.instagram.com/invites/contact/?igsh=u951fnuai0zh&utm_content=zelvo4y"
+                        target="_blank"
+                        class="group relative p-1 rounded-full overflow-hidden transition-transform hover:scale-105 active:scale-95">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] animate-shine">
+                        </div>
+                        <div
+                            class="relative px-8 py-4 bg-dark-rich rounded-full flex items-center gap-3 text-white font-bold border border-white/5 group-hover:bg-transparent transition-colors">
+                            <i
+                                class="fab fa-instagram text-xl text-[#dc2743] group-hover:text-white transition-colors"></i>
+                            <span class="text-sm tracking-widest uppercase">Instagram</span>
+                        </div>
+                    </a>
+
+                    <!-- Facebook Card -->
+                    <a href="https://www.facebook.com/share/1KQWbcvLsM/" target="_blank"
+                        class="group relative p-1 rounded-full overflow-hidden transition-transform hover:scale-105 active:scale-95">
+                        <div class="absolute inset-0 bg-gradient-to-r from-[#1877F2] to-[#0a5ed7] animate-shine"></div>
+                        <div
+                            class="relative px-8 py-4 bg-dark-rich rounded-full flex items-center gap-3 text-white font-bold border border-white/5 group-hover:bg-transparent transition-colors">
+                            <i
+                                class="fab fa-facebook text-xl text-[#1877F2] group-hover:text-white transition-colors"></i>
+                            <span class="text-sm tracking-widest uppercase">Facebook</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-20 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div
+                class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gold/50 to-transparent">
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col items-center">
+                <!-- Decorative Footer Logo -->
+                <div class="mb-12 flex flex-col items-center opacity-10 pointer-events-none select-none">
+                    <img src="my logo.svg" alt="LM Graphix" class="h-40 w-auto">
+                </div>
+
+                <div class="flex gap-8 mb-10 text-gray-500">
+                    <a href="#home"
+                        class="hover:text-gold transition-colors text-sm font-bold uppercase tracking-widest">Home</a>
+                    <a href="#about"
+                        class="hover:text-gold transition-colors text-sm font-bold uppercase tracking-widest">About</a>
+                    <a href="#services"
+                        class="hover:text-gold transition-colors text-sm font-bold uppercase tracking-widest">Services</a>
+                </div>
+
+                <div class="w-16 h-[1px] bg-white/10 mb-10"></div>
+
+                <p class="text-gray-600 text-sm font-medium tracking-wide">
+                    &copy; 2026 <span class="text-gold/60">LM Graphix</span>. Crafted for Excellence.
+                </p>
+
+                <div class="mt-4 flex gap-4 text-gray-500 text-lg">
+                    <a href="#" class="hover:text-gold transition-colors"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="hover:text-gold transition-colors"><i class="fab fa-behance"></i></a>
+                    <a href="#" class="hover:text-gold transition-colors"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Custom Cursor Movement
+        const cursor = document.getElementById('custom-cursor');
+        let cursorX = 0;
+        let cursorY = 0;
+        let targetX = 0;
+        let targetY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            targetX = e.clientX;
+            targetY = e.clientY;
+
+            // Spotlights on cards
+            document.querySelectorAll('.card-spotlight').forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+
+            // Spawn more particles frequently
+            if (Math.random() > 0.4) {
+                createParticle(e.clientX, e.clientY);
+            }
+        });
+
+        // Magnetic Attraction Detection
+        const updateMagnetic = () => {
+            const magnetics = document.querySelectorAll('a, button');
+            magnetics.forEach(m => {
+                m.addEventListener('mouseenter', () => {
+                    isMagnetic = true;
+                    const rect = m.getBoundingClientRect();
+                    magneticX = rect.left + rect.width / 2;
+                    magneticY = rect.top + rect.height / 2;
+                });
+                m.addEventListener('mouseleave', () => {
+                    isMagnetic = false;
+                });
+            });
+        };
+        updateMagnetic();
+
+        // Click burst effect
+        document.addEventListener('click', (e) => {
+            for (let i = 0; i < 8; i++) {
+                createParticle(e.clientX, e.clientY, true);
+            }
+        });
+
+        // Magnetic Cursor Effect Variables
+        let magneticX = 0;
+        let magneticY = 0;
+        let isMagnetic = false;
+
+        // Smooth cursor lag with Magnetic pull
+        function animateCursor() {
+            if (isMagnetic) {
+                cursorX += (magneticX - cursorX) * 0.25;
+                cursorY += (magneticY - cursorY) * 0.25;
+            } else {
+                cursorX += (targetX - cursorX) * 0.15;
+                cursorY += (targetY - cursorY) * 0.15;
+            }
+            cursor.style.transform = `translate(${cursorX - 20}px, ${cursorY - 20}px)`;
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Click effect
+        document.addEventListener('mousedown', () => cursor.classList.add('active'));
+        document.addEventListener('mouseup', () => cursor.classList.remove('active'));
+
+        // Hover effect for interactive elements
+        const updateInteractions = () => {
+            const interactiveElements = document.querySelectorAll('a, button, .cursor-pointer, input, textarea');
+            interactiveElements.forEach(el => {
+                if (!el.dataset.hasCursorListener) {
+                    el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+                    el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+                    el.dataset.hasCursorListener = 'true';
+                }
+            });
+        };
+        updateInteractions();
+        // Re-run if content changes (e.g., dynamic elements)
+        setInterval(updateInteractions, 1000);
+
+        // Particle logic
+        function createParticle(x, y, isBurst = false) {
+            const particle = document.createElement('div');
+            particle.className = 'cursor-particle';
+            const size = isBurst ? Math.random() * 8 + 4 : Math.random() * 5 + 2;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+
+            particle.style.left = `${x}px`;
+            particle.style.top = `${y}px`;
+
+            document.body.appendChild(particle);
+
+            const speedMultiplier = isBurst ? 150 : 80;
+            const destinationX = x + (Math.random() - 0.5) * speedMultiplier;
+            const destinationY = y + (Math.random() - 0.5) * speedMultiplier;
+
+            const animation = particle.animate([
+                { transform: 'translate(0, 0) scale(1)', opacity: 0.8 },
+                { transform: `translate(${destinationX - x}px, ${destinationY - y}px) scale(0)`, opacity: 0 }
+            ], {
+                duration: (isBurst ? 1200 : 800) + Math.random() * 400,
+                easing: 'cubic-bezier(0, .9, .57, 1)'
+            });
+
+            animation.onfinish = () => particle.remove();
+        }
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = menuBtn.querySelector('i');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            }
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+    </script>
+</body>
+
+</html>
