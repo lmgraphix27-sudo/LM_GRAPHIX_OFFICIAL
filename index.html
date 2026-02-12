@@ -311,11 +311,12 @@
         }
 
         #custom-cursor {
-            background: rgba(0, 242, 255, 0.15);
-            box-shadow: 0 0 25px 15px rgba(0, 242, 255, 0.3);
-            filter: blur(4px);
-            border: 2px solid rgba(0, 242, 255, 0.4);
-            transition: transform 0.15s ease-out, background 0.3s ease;
+            background: rgba(0, 242, 255, 0.4);
+            filter: drop-shadow(0 0 10px rgba(0, 242, 255, 0.6));
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            transition: transform 0.1s ease-out, background 0.3s ease;
+            width: 25px !important;
+            height: 25px !important;
         }
 
         #custom-cursor.hover {
@@ -418,8 +419,7 @@
 
     <canvas id="celestial-dragon-canvas"></canvas>
 
-    <div id="custom-cursor"
-        class="fixed w-10 h-10 rounded-full pointer-events-none z-[9999] flex items-center justify-center">
+    <div id="custom-cursor" class="fixed w-10 h-10 pointer-events-none z-[9999] flex items-center justify-center">
     </div>
 
     <!-- Header -->
@@ -1498,9 +1498,23 @@
         let targetX = 0;
         let targetY = 0;
 
+        let lastTargetX = 0;
+        let lastTargetY = 0;
+        let cursorAngle = 0;
+
         document.addEventListener('mousemove', (e) => {
+            const dx = e.clientX - lastTargetX;
+            const dy = e.clientY - lastTargetY;
+
+            if (Math.abs(dx) > 1 || Math.abs(dy) > 1) {
+                cursorAngle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
+            }
+
             targetX = e.clientX;
             targetY = e.clientY;
+
+            lastTargetX = targetX;
+            lastTargetY = targetY;
 
             // Spotlights on cards
             document.querySelectorAll('.card-spotlight').forEach(card => {
@@ -1555,7 +1569,8 @@
                 cursorX += (targetX - cursorX) * 0.15;
                 cursorY += (targetY - cursorY) * 0.15;
             }
-            cursor.style.transform = `translate(${cursorX - 20}px, ${cursorY - 20}px)`;
+            // Apply translation AND rotation for the triangle
+            cursor.style.transform = `translate(${cursorX - 12}px, ${cursorY - 12}px) rotate(${cursorAngle}deg)`;
             requestAnimationFrame(animateCursor);
         }
         animateCursor();
